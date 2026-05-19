@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Palette */
+  --color-primary: #280327;        
+  --color-accent-coral: #FF5A4F;    
+  --color-accent-pink: #FF2F8E;    
+  --color-secondary-light: #C88CFF; 
+  --color-neutral-light: #FFFFFF;    
+  --color-neutral-dark: #3A1237;    
+  --color-border: #EAD7E6;          
+}
+
+body {
+  background-color: var(--color-primary);
+  color: #FFFFFF; 
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  background-color: var(--color-primary);
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), sans-serif;
+}
