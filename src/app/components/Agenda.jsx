@@ -1,10 +1,11 @@
 import React from 'react';
+import Image from 'next/image';
 
-import cube from '../../assets/icons/cube.png';
-import monitor from '../../assets/icons/monitor.png';
-import record from '../../assets/icons/record.png';
-import trophy from '../../assets/icons/trophy.png';
-import agendaBg from '../../assets/background.png';
+import cube from '@/assets/Agenda/cube.png';
+import monitor from '@/assets/Agenda/monitor.png';
+import record from '@/assets/Agenda/record.png';
+import trophy from '@/assets/Agenda/trophy.png';
+import agendaBg from '@/assets/background.png';
 
 const Icons = {
   LogIn: () => (
@@ -23,15 +24,7 @@ const Icons = {
       <line x1="15" y1="12" x2="3" y2="12" />
     </svg>
   ),
-
-  Record: () => (
-    <img
-      src={record.src}
-      alt="Record Icon"
-      className="w-6 h-6 object-contain"
-    />
-  ),
-
+  Record: () => <Image src={record} alt="Record Icon" className="w-6 h-6 object-contain" />,
   Globe: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -48,15 +41,7 @@ const Icons = {
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   ),
-
-  Trophy: () => (
-    <img
-      src={trophy.src}
-      alt="Trophy Icon"
-      className="w-6 h-6 object-contain"
-    />
-  ),
-
+  Trophy: () => <Image src={trophy} alt="Trophy Icon" className="w-6 h-6 object-contain" />,
   Coffee: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -75,23 +60,8 @@ const Icons = {
       <line x1="14" y1="2" x2="14" y2="4" />
     </svg>
   ),
-
-  Box: () => (
-    <img
-      src={cube.src}
-      alt="Cube Icon"
-      className="w-6 h-6 object-contain"
-    />
-  ),
-
-  Tv: () => (
-    <img
-      src={monitor.src}
-      alt="Monitor Icon"
-      className="w-6 h-6 object-contain"
-    />
-  ),
-
+  Box: () => <Image src={cube} alt="Cube Icon" className="w-6 h-6 object-contain" />,
+  Tv: () => <Image src={monitor} alt="Monitor Icon" className="w-6 h-6 object-contain" />,
   Power: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +77,6 @@ const Icons = {
       <line x1="12" y1="2" x2="12" y2="12" />
     </svg>
   ),
-
   Star: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -194,23 +163,19 @@ export default function Agenda() {
   return (
     <section
       id="agenda"
-      className="relative isolate w-full py-24 bg-[#280327] overflow-hidden border-t border-white/5 font-montserrat"
+      className="relative isolate w-full py-16 sm:py-24 bg-[#280327] overflow-hidden font-montserrat"
     >
-      {/* Background decorative image */}
-      <img
-        src={agendaBg.src}
+      <Image
+        src={agendaBg}
         alt=""
         aria-hidden="true"
         className="absolute -left-60 top-12 z-0 pointer-events-none select-none opacity-25 w-[900px] lg:w-[1179px] h-auto"
       />
 
-      {/* Main Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-
-        {/* Title */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-[3.5rem] font-bold text-white mb-4 tracking-tight">
-            System <span style={{ color: '#FE594E' }}>Roadmap</span>
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-white mb-4 tracking-tight">
+            Seminar <span style={{ color: '#FE594E' }}>Roadmap</span>
           </h2>
 
           <p
@@ -224,8 +189,7 @@ export default function Agenda() {
           </p>
         </div>
 
-        {/* Column Headers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 mb-14">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-16 mb-10 md:mb-14">
           {['Morning Sessions', 'Afternoon Sessions'].map((label) => (
             <div key={label} className="flex items-center gap-4 pl-1">
               <h3
@@ -235,34 +199,113 @@ export default function Agenda() {
                 {label}
               </h3>
 
-              <div
-                className="w-48 h-[2px] flex-shrink-0"
-                style={{ background: 'rgba(255,255,255,0.08)' }}
-              />
+              <div className="w-48 h-[2px] flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)' }} />
             </div>
           ))}
         </div>
 
-        {/* Timeline Rows */}
-        <div className="flex flex-col gap-y-10">
+        <div className="md:hidden space-y-10">
+          <div>
+            <h3 className="text-xs font-bold whitespace-nowrap tracking-[0.25em] uppercase mb-4" style={{ color: '#C88DFF' }}>
+              Morning Sessions
+            </h3>
+            <div className="space-y-4">
+              {MORNING.map((slot, index) => {
+                const IconComponent = slot.icon;
+
+                return (
+                  <article
+                    key={index}
+                    className="rounded-2xl border border-white/10 bg-[#220021]/75 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF2F8E]/50 hover:shadow-[0_12px_36px_rgba(255,47,142,0.18)]"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{
+                          backgroundColor: '#3a0830',
+                          border: '1.5px solid #FF2F8E',
+                          color: '#FF2F8E',
+                          boxShadow: '0 0 0 1px rgba(255,47,142,0.15)',
+                        }}
+                      >
+                        {IconComponent && <IconComponent />}
+                      </div>
+
+                      <div className="min-w-0">
+                        <span className="text-[10px] font-bold block tracking-widest uppercase mb-1.5" style={{ color: '#FF2F8E', letterSpacing: '0.15em' }}>
+                          {slot.time}
+                        </span>
+                        <h3 className="font-bold text-base text-white mb-1 leading-snug">
+                          {slot.event}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-white/40">
+                          {slot.sub}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold whitespace-nowrap tracking-[0.25em] uppercase mb-4" style={{ color: '#C88DFF' }}>
+              Afternoon Sessions
+            </h3>
+            <div className="space-y-4">
+              {AFTERNOON.map((slot, index) => {
+                const IconComponent = slot.icon;
+
+                return (
+                  <article
+                    key={index}
+                    className="rounded-2xl border border-white/10 bg-[#220021]/75 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#FF2F8E]/50 hover:shadow-[0_12px_36px_rgba(255,47,142,0.18)]"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{
+                          backgroundColor: '#3a0830',
+                          border: '1.5px solid #FF2F8E',
+                          color: '#FF2F8E',
+                          boxShadow: '0 0 0 1px rgba(255,47,142,0.15)',
+                        }}
+                      >
+                        {IconComponent && <IconComponent />}
+                      </div>
+
+                      <div className="min-w-0">
+                        <span className="text-[10px] font-bold block tracking-widest uppercase mb-1.5" style={{ color: '#FF2F8E', letterSpacing: '0.15em' }}>
+                          {slot.time}
+                        </span>
+                        <h3 className="font-bold text-base text-white mb-1 leading-snug">
+                          {slot.event}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-white/40">
+                          {slot.sub}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden md:flex flex-col gap-y-8 md:gap-y-10">
           {MORNING.map((morningSlot, index) => {
             const afternoonSlot = AFTERNOON[index];
             const isLast = index === MORNING.length - 1;
 
             return (
-              <div
-                key={index}
-                className="grid grid-cols-1 md:grid-cols-2 gap-x-16 w-full items-start"
-              >
+              <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 w-full items-start">
                 {[morningSlot, afternoonSlot].map((slot, sideIndex) => {
                   const IconComponent = slot?.icon;
 
                   return (
-                    <div
-                      key={sideIndex}
-                      className="flex items-start gap-5 relative"
-                    >
-                      {/* Icon Circle */}
+                    <div key={sideIndex} className="flex items-start gap-5 relative">
                       <div className="relative flex-shrink-0 z-10">
                         <div
                           className="w-11 h-11 rounded-full flex items-center justify-center"
@@ -270,14 +313,12 @@ export default function Agenda() {
                             backgroundColor: '#3a0830',
                             border: '1.5px solid #FF2F8E',
                             color: '#FF2F8E',
-                            boxShadow:
-                              '0 0 0 1px rgba(255,47,142,0.15)',
+                            boxShadow: '0 0 0 1px rgba(255,47,142,0.15)',
                           }}
                         >
                           {IconComponent && <IconComponent />}
                         </div>
 
-                        {/* Connector Line */}
                         {!isLast && (
                           <div
                             className="absolute left-1/2 -translate-x-1/2"
@@ -291,8 +332,7 @@ export default function Agenda() {
                         )}
                       </div>
 
-                      {/* Text */}
-                      <div className="pt-0.5 pb-1">
+                      <div className="pt-0.5 pb-1 transition-all duration-300 hover:-translate-y-1 hover:translate-x-0.5">
                         <span
                           className="text-xs font-bold block tracking-widest uppercase mb-1.5"
                           style={{
@@ -312,8 +352,7 @@ export default function Agenda() {
                             className="text-sm leading-relaxed max-w-sm mt-1 block"
                             style={{
                               color: 'rgba(255,255,255,0.40)',
-                              fontVariationSettings:
-                                "'wght' 250, 'wdth' 80",
+                              fontVariationSettings: "'wght' 250, 'wdth' 80",
                               transform: 'scaleX(0.94)',
                               transformOrigin: 'left',
                               WebkitFontSmoothing: 'antialiased',

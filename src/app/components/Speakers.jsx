@@ -1,54 +1,86 @@
 import React from 'react';
 
+import alexImg from '@/assets/speakers/alex-rivera.png';
+import johnImg from '@/assets/speakers/john-cruz.png';
+import anaImg from '@/assets/speakers/ana-thorne.png';
+import josephImg from '@/assets/speakers/joseph-tan.png';
+import bgImg from '@/assets/speaker-bg.png'; 
+
 const SPEAKERS = [
-  { id: 1, name: "Pending Confirmation", role: "Industry Practitioner", company: "To Be Announced", topic: "Seminar Session 1: Core Frameworks" },
-  { id: 2, name: "Pending Confirmation", role: "Academic Expert", company: "To Be Announced", topic: "Seminar Session 2: Infrastructure" },
-  { id: 3, name: "Pending Confirmation", role: "Senior Engineer", company: "To Be Announced", topic: "Seminar Session 3: Emerging Practices" },
-  { id: 4, name: "Pending Confirmation", role: "Solutions Architect", company: "To Be Announced", topic: "Seminar Session 4: Industry Matrix" },
+  { id: 1, name: "Mr. Marc Ian Escober", role: "Artificial Intelligence", company: "To Be Announced", session: "Seminar Session 1:", title: "Artificial Intelligence", imageUrl: alexImg.src },
+  { id: 2, name: "Mr. Asi Guiang", role: "Networks and Cybersecurity", company: "To Be Announced", session: "Seminar Session 2:", title: "Networks and Cybersecurity", imageUrl: johnImg.src },
+  { id: 3, name: "Mr. Billy Fajardo", role: "Big Data", company: "To Be Announced", session: "Seminar Session 3:", title: "Big Data", imageUrl: anaImg.src },
+  { id: 4, name: "Mr. Rannie Ollit", role: "System Development", company: "To Be Announced", session: "Seminar Session 4:", title: "System Development\n(Full Stack)", imageUrl: josephImg.src },
 ];
 
 export default function Speakers() {
   return (
-    <section id="speakers" className="relative w-full py-24 font-inter overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-4">
-            Seminar <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-pink to-accent-coral">Speakers</span>
-          </h2>
-          <p className="text-white/60 font-medium max-w-2xl mx-auto">
-            Industry professionals and academic experts bringing real-world insights to the core principles of computer engineering.
-          </p>
-        </div>
+    <section id="speakers" className="relative w-full py-24 bg-[#1a0219] font-montserrat overflow-hidden">
+      
+      <div className="relative max-w-6xl mx-auto w-full">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SPEAKERS.map((speaker) => (
-            <div 
-              key={speaker.id} 
-              className="group relative bg-gradient-to-b from-white/[0.08] to-white/[0.02] border border-white/10 backdrop-blur-md rounded-2xl p-6 hover:border-accent-coral/50 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
-            >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-accent-coral/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        <img 
+          src={bgImg.src}
+          alt="Section Background"
+          className="absolute -bottom-12 -right-10 w-[50%] h-auto object-contain object-right z-0 pointer-events-none opacity-30"
+        />
 
-              <div className="w-full aspect-square bg-white/5 border border-white/10 rounded-xl mb-6 flex flex-col items-center justify-center text-white/30 font-mono text-[10px] uppercase tracking-widest relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:10px_10px] opacity-10"></div>
-                [ HEADSHOT ]
+        <div className="relative z-10 px-6">
+          
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold text-white mb-4 tracking-tight">
+              Featured <span style={{ color: '#FE594E' }}>Speakers</span>
+            </h2>
+            
+            <p className="font-inter font-light text-[15px] text-[#FFEBF799]/60 max-w-none mx-auto tracking-wide whitespace-nowrap antialiased subpixel-antialiased">
+              Learn from industry experts and academic leaders at the forefront of computer engineering.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+            {SPEAKERS.map((speaker) => (
+              <div 
+                key={speaker.id} 
+                className="relative bg-[#250524] border-2 border-white/10 rounded-3xl p-6 pt-10 pb-8 flex flex-col items-center text-center transition-all duration-300"
+                style={{ minHeight: '520px'}}
+              >
+                <div className="absolute -top-[3px] -left-[2px] w-7 h-7 border-t-[3px] border-l-[3px] border-[#A1005A] z-10"></div>
+                <div className="absolute -bottom-[3px] -right-[2px] w-7 h-7 border-b-[3px] border-r-[3px] border-[#FF5A4F] z-10"></div>
+
+                <div className="w-5/6 aspect-square bg-[#220021] border-[3px] border-[#FFB0CA80] rounded-2xl mb-6 flex flex-col items-center justify-center relative overflow-hidden shrink-0">
+                  <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:10px_10px] opacity-30 z-0"></div>
+                  <img 
+                    src={speaker.imageUrl} 
+                    alt={`${speaker.name} Headshot`}
+                    className="absolute inset-0 w-full h-full object-cover object-center z-10"
+                  />
+                </div>
+                
+                <h3 className="font-montserrat font-bold text-xl text-white mb-4 tracking-wide whitespace-nowrap">
+                  {speaker.name}
+                </h3>
+                
+                {/* FIX: Added a container with min-h-[40px] and flex to ensure 
+                  the role takes up the exact same vertical space on every card, 
+                  regardless of whether it's 1 or 2 lines of text. 
+                */}
+                <div className="min-h-[40px] w-full flex items-start justify-center mb-2">
+                  <p className="font-inter text-[11px] font-bold tracking-[0.25em] text-[#FF2F8E] uppercase px-2 leading-relaxed">
+                    {speaker.role}
+                  </p>
+                </div>
+                
+                <div className="font-inter flex flex-col justify-start items-center w-full grow text-white/70 italic text-sm tracking-wide font-light leading-relaxed px-2 py-4">
+                  <span className="block">"{speaker.session}</span>
+                  <span className="block mt-1 whitespace-pre-line">{speaker.title}"</span>
+                </div>
+                
+                <div className="font-inter w-full pt-6 border-t-2 border-white/5 font-bold text-sm text-white tracking-wide shrink-0">
+                  {speaker.company}
+                </div>
               </div>
-              
-              <h3 className="font-montserrat font-bold text-lg text-white leading-tight mb-1">
-                {speaker.name}
-              </h3>
-              <p className="font-mono text-xs text-accent-coral uppercase tracking-wide">
-                {speaker.role}
-              </p>
-              
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 block mb-1">Session Topic</span>
-                <p className="font-inter font-medium text-sm text-white/80 leading-snug">
-                  {speaker.topic}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
