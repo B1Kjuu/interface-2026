@@ -1,10 +1,10 @@
 import React from 'react';
 
 const SPEAKERS = [
-  { id: 1, name: "Pending Confirmation", role: "Industry Practitioner", company: "To Be Announced", topic: "Seminar Session 1: Core Frameworks" },
-  { id: 2, name: "Pending Confirmation", role: "Academic Expert", company: "To Be Announced", topic: "Seminar Session 2: Infrastructure" },
-  { id: 3, name: "Pending Confirmation", role: "Senior Engineer", company: "To Be Announced", topic: "Seminar Session 3: Emerging Practices" },
-  { id: 4, name: "Pending Confirmation", role: "Solutions Architect", company: "To Be Announced", topic: "Seminar Session 4: Industry Matrix" },
+  { id: 1, name: "Mr. Marc Ian Escober", role: "Guest Speaker", company: "INTERFACE 2026", topic: "AI" },
+  { id: 2, name: "Mr. Asi Guiang", role: "Guest Speaker", company: "INTERFACE 2026", topic: "Networks and Cybersecurity" },
+  { id: 3, name: "Mr. Billy Fajardo", role: "Guest Speaker", company: "INTERFACE 2026", topic: "Big Data" },
+  { id: 4, name: "Mr. Rannie Ollit", role: "Guest Speaker", company: "INTERFACE 2026", topic: "System Development (Full stack)" },
 ];
 
 export default function Speakers() {

@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the INTERFACE 2026 website, built with [Next.js](https://nextjs.org/).
 
 ## Getting Started
 
@@ -16,21 +16,35 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create `.env.local` with:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+NEXT_PUBLIC_LUMA_URL="https://luma.com/yvwaahcq"
+```
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repo includes a GitHub Actions workflow at [`.github/workflows/vercel.yml`](</home/ryan/Documents/repos/interface-2026/.github/workflows/vercel.yml:1>).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Behavior:
+
+- Pull requests targeting `main` create a Preview deployment
+- Pushes to `main` create a Production deployment
+
+Required GitHub repository secrets:
+
+```text
+VERCEL_TOKEN
+VERCEL_ORG_ID
+VERCEL_PROJECT_ID
+```
+
+The workflow uses Vercel's recommended GitHub Actions flow:
+
+1. `vercel pull`
+2. `vercel build`
+3. `vercel deploy --prebuilt`
+
+Also configure the same environment variable in the Vercel project for Preview and Production.

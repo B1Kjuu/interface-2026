@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default function Venue() {
-  const broadcastUrl = process.env.NEXT_PUBLIC_BROADCAST_URL;
-  
   return (
     <section id="venue" className="relative w-full py-32 font-inter overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
