@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import interfaceLogo from "@/assets/interface-logo.png";
 import bridgeImage from "@/assets/Bridge.png";
+import GradientText from "@/shared/GradientText";
+// Hyperspeed removed — static background used instead
 
 function BridgeIllustration() {
   return (
@@ -50,24 +52,21 @@ const PinIcon = () => (
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  // removed hyperspeed options
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <div className="min-h-[78vh] sm:min-h-screen text-white font-inter overflow-x-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 20%, rgba(161,0,90,0.15) 0%, transparent 70%)",
-        }}
-      />
+    <div
+      className="relative min-h-[78vh] sm:min-h-screen text-white font-inter overflow-x-hidden"
+      style={{ backgroundColor: '#130314', minHeight: '78vh' }}
+    >
+      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none bg-[#280327]"></div>
+      <main className="relative z-10 flex flex-col items-center text-center px-4 pt-28 sm:pt-24 md:pt-32 pb-0 max-w-6xl mx-auto pointer-events-none">
 
-      <main className="relative z-10 flex flex-col items-center text-center px-4 pt-28 sm:pt-24 md:pt-32 pb-0 max-w-6xl mx-auto">
-
-        <div className="mb-4 sm:mb-5 inline-flex items-center rounded-full px-4 py-1.5 border border-[#a56992]/45 bg-[#3a0f3f]/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm">
+        <div className="mb-4 sm:mb-5 inline-flex items-center rounded-full px-4 py-1.5 border border-[#a56992]/45 bg-[#3a0f3f]/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm pointer-events-auto">
           <span className="text-[10px] sm:text-[11px] font-montserrat font-semibold tracking-[0.15em] uppercase text-[#e8a8c9] leading-tight">
             PUP Computer Engineering Seminar 2026
           </span>
@@ -79,10 +78,16 @@ export default function Hero() {
           }`}
           style={{ fontSize: "clamp(2.8rem, 14vw, 7rem)" }}
         >
-          <span className="text-white">INTERFACE </span>
+          <GradientText colors={["#FF2F8E", "#FF5A4F", "#C88CFF"]} animationSpeed={6} className="font-montserrat font-extrabold">
+            INTERFACE
+          </GradientText>
           <span
-            className="text-transparent bg-clip-text bg-gradient-to-r from-accent-pink to-accent-coral"
-            style={{ WebkitTextStroke: "0px", textShadow: "none" }}
+            className="ml-3 sm:ml-4 text-transparent bg-clip-text bg-gradient-to-r from-accent-pink to-accent-coral"
+            style={{
+              WebkitTextStroke: "0px",
+              textShadow: "0 0 10px rgba(255, 47, 142, 0.35), 0 0 22px rgba(255, 90, 79, 0.14)",
+            }}
+            aria-hidden={false}
           >
             2026
           </span>
@@ -107,7 +112,7 @@ export default function Hero() {
           <MetaPill icon={<PinIcon />} label="CEA AVR / Virtual" />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-10 w-full max-w-xl px-2 sm:px-0">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-10 w-full max-w-xl px-2 sm:px-0 pointer-events-auto">
           <a
             href={process.env.NEXT_PUBLIC_LUMA_URL || "https://lu.ma"}
             target="_blank"

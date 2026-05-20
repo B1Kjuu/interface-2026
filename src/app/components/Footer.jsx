@@ -23,20 +23,22 @@ export default function Footer() {
               href="https://www.facebook.com/share/1BJvTZ1Ndi/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Share this event on Facebook"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              <span>Facebook</span>
+              <span>Share on Facebook</span>
             </a>
 
             <a
               href="https://www.facebook.com/PUPCpEOfficial"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Open PUPCpE Facebook page (opens in new tab)"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              <span>Department Page</span>
+              <span>PUPCpE Facebook Page</span>
             </a>
           </div>
         </div>

@@ -5,7 +5,7 @@ export default function Venue() {
   const broadcastUrl = process.env.NEXT_PUBLIC_BROADCAST_URL;
   
   return (
-    <section id="venue" className="relative w-full py-32 font-inter overflow-hidden bg-[#280327]">
+    <section id="venue" className="relative w-full py-20 sm:py-32 font-inter overflow-hidden bg-[#280327]">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         
         <div className="mb-16">

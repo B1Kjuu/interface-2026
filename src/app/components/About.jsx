@@ -36,11 +36,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-32 bg-[#280327] relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-32 bg-[#280327] relative overflow-hidden">
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#a1005a]/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 -translate-x-1/2"></div>
 
       <div className="px-8 md:px-16 max-w-[1200px] mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-12 sm:mb-20">
           <div className="space-y-6">
             <div>
               <span className="text-[#a1005a] font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs block mb-3">

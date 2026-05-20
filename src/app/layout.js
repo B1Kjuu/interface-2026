@@ -28,9 +28,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable} ${inter.variable} scroll-smooth`}>
       <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+          as="style"
+          onLoad="this.rel='stylesheet'"
+        />
+        <noscript>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        </noscript>
       </head>
-      <body>{children}</body>
+      <body className="font-inter">
+        <div aria-hidden="true" className="global-ambient-layer" />
+        <div className="relative z-10 min-h-screen">{children}</div>
+      </body>
     </html>
   )
 }

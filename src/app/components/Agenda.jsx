@@ -163,7 +163,7 @@ export default function Agenda() {
   return (
     <section
       id="agenda"
-      className="relative isolate w-full py-24 bg-[#280327] overflow-hidden font-montserrat"
+      className="relative isolate w-full py-16 sm:py-24 bg-[#280327] overflow-hidden font-montserrat"
     >
       <Image
         src={agendaBg}
